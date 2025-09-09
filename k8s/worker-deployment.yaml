@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskiq-worker
+spec:
+  replicas: 2   # 2 workers for load balancing
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - name: worker
+        image: hrish/taskiq-worker:latest  # Build and push to Docker registry
+        env:
+        - name: NATS_URL
+          value: "nats://nats:4222"

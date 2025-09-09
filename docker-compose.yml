@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  nats:
+    image: nats:latest
+    container_name: nats-server
+    ports:
+      - "4222:4222"   # Client connections (workers/producers connect here)
+      - "8222:8222"   # Monitoring API (http://localhost:8222)
+      - "6222:6222"   # (optional) route connections for clustering
+    command: [
+      "-js",          # Enable JetStream
+      "-m", "8222"    # Enable monitoring on port 8222
+    ]

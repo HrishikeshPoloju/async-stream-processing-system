@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# NATS executable
+nats.exe
+
+# Docker
+*.pid
+*.seed
+*.tar
+*.bak
+
+# Kubernetes local configs
+*.yaml~
+*.yml~
+
+# VSCode settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db

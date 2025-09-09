@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: taskiq-producer
+spec:
+  template:
+    spec:
+      containers:
+      - name: producer
+        image: hrish/taskiq-producer:latest
+        env:
+        - name: NATS_URL
+          value: "nats://nats:4222"
+      restartPolicy: Never
